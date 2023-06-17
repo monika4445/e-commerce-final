@@ -1,20 +1,28 @@
 const jwt = require('jsonwebtoken');
 
 function checkUser(req,res, next){
-    const authHeader = req.headers['authorization']
-    const token = authHeader && authHeader.split(' ')[1]
-    
-    const decoded = jwt.decode(token);
-    //console.log(decoded);
-    const is_admin = decoded.is_admin;
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1];
 
-    if(is_admin === 0){
-      console.log(error.message);
-      res.status(403);
-    }
-    next();
+  if (!token) {
+    return res.status(401).json({ message: 'Authorization token not provided.' });
   }
+    
+  try {
+    const decoded = jwt.decode(token);
+    const role = decoded.role;
 
-  module.exports = {
-    checkUser
+    if (role === 'user') {
+      return res.status(403).json({ message: 'Unauthorized access: User role not allowed.' });
+    }
+
+    next();
+  } catch (error) {
+    console.error(error);
+    return res.status(403).json({ message: 'Invalid or expired token.' });
+  }
 }
+
+module.exports = {
+  checkUser
+};

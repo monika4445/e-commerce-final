@@ -105,7 +105,7 @@ class AuthController {
       const token = req.query.token;
       const decoded = jwt.verify(token, SECRET);
 
-      await User.update({ is_verified: 1 }, { where: { email: decoded.email } });
+      await User.update({ userVerified: true }, { where: { email: decoded.email } });
 
       res.status(200).json({ message: "Account verified" });
     } catch (err) {

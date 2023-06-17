@@ -19,7 +19,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       role: {
-        type: Sequelize.ENUM
+        type: Sequelize.ENUM('user', 'admin')
       },
       userVerified: {
         type: Sequelize.BOOLEAN

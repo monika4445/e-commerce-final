@@ -9,7 +9,7 @@ async function sendEmail(receiver_email, link){
             pass: process.env.EMAIL_PASSWORD
         },
         tls: {
-            rejectUnauthorized: false
+            rejectUnauthorized: true
         }
     });
 

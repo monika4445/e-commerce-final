@@ -1,0 +1,39 @@
+.slideshow {
+  display: flex;
+  flex-direction: column;
+}
+
+.big-image {
+  margin-bottom: 10px;
+}
+
+.small-images {
+  display: flex;
+
+  img {
+    width: 20px;
+    opacity: 0.6;
+    cursor: pointer;
+
+    &:last-child {
+      margin-right: 0;
+    }
+    &.selected {
+      opacity: 1;
+    }
+  }
+}
+
+.product-box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0;
+  .txt-box {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-direction: column;
+  }
+}

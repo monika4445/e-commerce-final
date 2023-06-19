@@ -1,36 +1,43 @@
 const { Product, Category, Image } = require("../models");
 const fs = require("fs");
 const path = require("path");
-const { validationResult } = require('express-validator');
+const { validationResult } = require("express-validator");
 
 class ProductController {
-  static async getAllProducts(req, res) {
+  static async allProducts(req, res) {
     try {
+      const page = req.query.page;
+      const pageSize = req.query.pageSize;
+
+      const offset = (page - 1) * pageSize;
+
       const products = await Product.findAll({
-        include: [
-          { model: Image },
-          { model: Category }
-        ]
+        include: [{ model: Image }, { model: Category }],
+        offset,
+        limit: pageSize,
       });
-      res.status(200).json({ success: true, message: "Products fetched successfully", data: products });
+
+      const totalCount = await Product.count();
+      const totalPages = Math.ceil(totalCount / pageSize);
+
+      res.status(201).json({ products, totalPages });
     } catch (error) {
-      res.status(500).json({ success: false, message: "Failed to fetch products", error: error.message });
+      console.error("Error retrieving products:", error);
+      res.status(500).json({ message: "Failed to retrieve products" });
     }
   }
 
-  static async getProductById(req, res) {
+  static async getProduct(req, res) {
     const { id } = req.params;
     try {
       const product = await Product.findOne({
         where: { id },
-        include: [
-          { model: Image },
-          { model: Category }
-        ]
+        include: [{ model: Image }, { model: Category }],
       });
-      res.status(200).json({ success: true, message: "Product fetched successfully", data: product });
+      res.status(201).json(product);
     } catch (error) {
-      res.status(500).json({ success: false, message: "Failed to fetch product", error: error.message });
+      console.error("Error retrieving product:", error);
+      res.status(500).json({ message: "Failed to retrieve product" });
     }
   }
 
@@ -40,9 +47,8 @@ class ProductController {
     try {
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
-        return res.status(400).json({ success: false, error: errors.array()[0].msg });
+        return res.status(400).json({ error: errors.array()[0].msg });
       }
-
       const newProduct = await Product.create({
         name,
         categoryId,
@@ -50,21 +56,21 @@ class ProductController {
         description,
         quantity,
       });
-
-      const images = req.files.map((file) => ({
-        fileName: file.filename,
-        productId: newProduct.id,
-      }));
-
+      const images = req.files.map((file) => {
+        return {
+          fileName: file.filename,
+          productId: newProduct.id,
+        };
+      });
       await Image.bulkCreate(images);
-
-      res.status(201).json({ success: true, message: "Product created successfully", data: newProduct });
+      res.status(201).json(newProduct);
     } catch (error) {
-      res.status(500).json({ success: false, message: "Failed to create product", error: error.message });
+      console.error("Error creating product:", error);
+      res.status(500).json({ message: "Failed to create product" });
     }
   }
 
-  static async updateProductById(req, res) {
+  static async updateProduct(req, res) {
     const { id } = req.params;
     const { name, price, description, quantity, categoryId } = req.body;
     const { files } = req;
@@ -80,7 +86,6 @@ class ProductController {
           "images",
           image.fileName
         );
-
         if (fs.existsSync(filePath)) {
           fs.unlinkSync(filePath);
         }
@@ -89,12 +94,18 @@ class ProductController {
       await Image.destroy({ where: { productId: id } });
 
       if (files) {
-        const imgs = files.map((file) => ({
-          productId: id,
-          fileName: file.filename,
-        }));
+        console.log("New File:", files);
 
+        const imgs = files.map((file) => {
+          return {
+            productId: id,
+            fileName: file.filename,
+          };
+        });
         const newImage = await Image.bulkCreate(imgs);
+
+        console.log("New Image:", newImage);
+
         const product = await Product.findByPk(id);
         await product.addImage(newImage);
       }
@@ -104,14 +115,16 @@ class ProductController {
         { where: { id } }
       );
 
-      res.status(200).json({ success: true, message: "Product updated successfully" });
+      const updatedProduct = await Product.findByPk(id);
+
+      res.status(200).json({ message: "Product updated successfully" });
     } catch (error) {
-      console.error(error);
-      res.status(500).json({ success: false, message: "Failed to update product", error: error.message });
+      console.error("Error updating product:", error);
+      res.status(500).json({ message: "Failed to update product" });
     }
   }
 
-  static async deleteProductById(req, res) {
+  static async deleteProduct(req, res) {
     const { id } = req.params;
     try {
       const images = await Image.findAll({ where: { productId: id } });
@@ -130,10 +143,12 @@ class ProductController {
       await Image.destroy({ where: { productId: id } });
       await Product.destroy({ where: { id } });
 
-      res.status(200).json({ success: true, message: "Product and associated images deleted successfully" });
+      res
+        .status(200)
+        .json({ message: "Product and associated images deleted successfully" });
     } catch (error) {
-      console.error(error);
-      res.status(500).json({ success: false, message: "Failed to delete product", error: error.message });
+      console.error("Error deleting product:", error);
+      res.status(500).json({ message: "Failed to delete product" });
     }
   }
 }

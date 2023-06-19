@@ -1,0 +1,161 @@
+.logo {
+  width: 72px;
+  height: 55px;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 50px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  position: relative;
+}
+
+.nav-links a {
+  color: #fff;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 18px;
+  position: relative;
+}
+
+.menu li {
+  padding: 5px 14px;
+}
+
+.menu .avatar {
+  position: relative;
+}
+
+.menu .avatar .dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #fff;
+  color: #000;
+  padding: 10px;
+  border: 1px solid #ccc;
+  z-index: 2;
+}
+
+.menu .avatar:hover .dropdown {
+  display: block;
+}
+
+.menu .avatar .dropdown .dropdown-item {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+  font-size: 24px;
+}
+
+@media screen and (max-width: 810px) {
+  .menu {
+    display: none;
+    position: absolute;
+    background-color: rgba(28, 30, 30, 0.5);
+    right: 0;
+    left: 0;
+    text-align: center;
+    padding: 16px 0;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+input[type="checkbox"]:checked ~ .menu {
+  display: block;
+}
+
+.cart {
+  width: 30px;
+}
+
+.cart .count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  right: 3px;
+  background-color: #ebf8f8;
+  border-radius: 50%;
+  padding: 2px 7px;
+  color: #000;
+  font-size: 12px;
+  text-align: center;
+}
+
+.dropdown1 {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.dropdown1:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown1 .dropdown-content {
+  display: none;
+  position: absolute;
+  margin-top: 7px;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown1 .dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown1 .dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown1 .dropbtn {
+  background-color: #435143;
+}
+
+.cart-badge {
+  position: absolute;
+  top: 3px;
+  right: 10px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 1px 5px;
+  font-size: 9px;
+  font-weight: bold;
+}

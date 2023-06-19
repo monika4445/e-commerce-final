@@ -1,0 +1,74 @@
+$categoryWidth: 100%;
+$categoryHeight: 450px;
+$categoryRepeat: no-repeat;
+$categorySize: cover;
+$categoryPosition: center;
+
+.back-w-c{
+  width: $categoryWidth;
+  height: $categoryHeight;
+  background-image: url('../../../images/pupik-sun-color-citron-tortoise-pos-1.webp');
+  background-repeat: $categoryRepeat;
+  background-size: $categorySize;
+  background-position: 50% 50%;
+}
+.back-m-c{
+  width: $categoryWidth;
+  height: $categoryHeight;
+  background-image: url('https://i.insider.com/60c9ff9223393a00188e36fc?width=1200&format=jpeg');
+  background-repeat: $categoryRepeat;
+  background-size: $categorySize;
+  background-position: $categoryPosition;
+}
+.back-r-c{
+  width: $categoryWidth;
+  height: $categoryHeight;
+  background-image: url('https://cdn.shopify.com/s/files/1/0797/7371/products/sunski_polarized_sunglasses_baia_6_1400x1100.jpg?v=1685726768');
+  background-repeat: $categoryRepeat;
+  background-size: $categorySize;
+  background-position: $categoryPosition;
+}
+.category-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .image-box {
+      width: 200px;
+      height: 200px;
+      overflow: hidden;
+      border-radius: 8px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .text {
+      margin-top: 10px;
+
+      h3 {
+        font-size: 18px;
+        margin-bottom: 5px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+

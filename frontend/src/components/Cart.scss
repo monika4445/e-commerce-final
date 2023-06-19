@@ -1,0 +1,89 @@
+
+  h1 {
+    margin-top: 20px;
+    text-align: center;
+    color: #573b25;
+  }
+
+  .empty-cart{
+    width: 30%;
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    gap: 15px;
+    background-color: aliceblue;
+  }
+  
+  table {
+    width: 95%;
+  }
+  
+  table td,
+  th {
+    text-align: center;
+    padding: 15px;
+  }
+  
+  .row {
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: rgba(191, 191, 193, 0.2) 0px 2px 2px;
+  }
+  
+  .row img {
+    width: 70px;
+    height: 67px;
+  }
+  
+  .desc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .desc .text_btn_box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .delete_icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    color: #3e3e3e;
+    cursor: pointer;
+  }
+  
+
+
+  .amount {
+    width: 30%;
+    margin: 50px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+    font-size: 18px;
+    padding: 20px;
+    background-color: rgb(223, 233, 215);
+    color: rgb(35, 35, 35);
+  }
+  
+  .text {
+    font-size: 18px;
+  }
+  
+  .btn{
+    width: 24px;
+    height: 22px;
+  }

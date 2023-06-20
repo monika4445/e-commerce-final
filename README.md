@@ -1,11 +1,11 @@
 # Introducing GigTech, Your Ultimate Destination for Seamless E-commerce Experience!
 
 ## Description
-End-to-End E-commerce Development: Harness the Power of ReactJS, TypeScript, Redux Toolkit, SCSS, Express.js, PostgreSQL, Sequelize, and Vite for Seamless Frontend and Backend Functionality.
+End-to-End E-commerce Development: Utilize ReactJS, TypeScript, Redux Toolkit, SCSS, Express.js, PostgreSQL, Sequelize, and Vite for Smooth Frontend and Backend Functionality.
 At GigTech, our mission is to provide a seamless online shopping experience for electronic accessories. 
 Our target audience consists of tech enthusiasts, professionals, and individuals who appreciate cutting-edge electronic accessories.
 
-
+# E-commerce backend
 ## Scope and Scale of the Project
 The scope of our e-commerce application encompasses the development of a feature-rich website that encompasses the following components:
 
@@ -84,7 +84,7 @@ https://codebeautify.org/generate-random-string
 TOKEN_SECRET="yourrandomlygeneratedsecret"
 * Start the application
 ```
-nodemon server.js
+nodemon app.js
 ```
 * Register via http://localhost:5000/register with username, email, and password in the body as JSON format via Postman or any alternatives
 * If successful, you should get a verification email

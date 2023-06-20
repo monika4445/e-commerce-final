@@ -56,7 +56,7 @@ The scope of our e-commerce application encompasses the development of a feature
 
 ```
 git clone https://github.com/monika4445/e-commerece-final.git
-cd .. finalProject
+cd .. finalProject/backend
 npm install
 ```
 
@@ -98,3 +98,62 @@ nodemon server.js
 * To manage the cart, cart items, and orders, you can add or remove items from the cart, update cart items and order products
 * From there you can edit the app based on your needs
 * If you want to seed your products database with some random information, run node products_seed.js in the seeds folder, click "y" to delete all previous products or anything else to just add data without deleting anything
+
+# E-commerce frontend
+## Built With
+
+* ReactJS
+* TypeScript
+* Redux Toolkit
+* SCSS
+* React Router DOM
+* Vite
+
+## Technologies Used
+
+* @mui/icons-material - Material-UI icons library.
+* @react-google-maps/api - React library for integrating with Google Maps.
+* axios - Promise-based HTTP client for making API requests.
+* dotenv - Environment variable management library.
+* react-jwt - React library for handling JWT authentication.
+* react-stripe-checkout - React library for integrating with Stripe checkout.
+* sass - CSS preprocessor for styling.
+
+## Features
+
+* Home Page: A visually appealing landing page.
+
+* Product Catalog: Display a wide range of electronic accessories, categorized and searchable for easy navigation.
+
+* Product Filtering and Sorting by Category: Users can utilize filtering and sorting.
+
+* Product Details: Each product page provides comprehensive details about the product, including high-resolution images, product descriptions.
+
+* Shopping Cart: Users can add products to their shopping cart, review the selected items, update quantities, and remove products if needed. The cart provides a summary of the selected products, along with the total price.
+
+* User Login and Registration: Users can create an account, log in securely, and manage their personal information.
+
+* Secure Checkout: The website integrates with Stripe, a secure payment gateway, to facilitate seamless and secure transactions. Users can enter their payment details, and complete the purchase with confidence.
+
+* Responsive Design: The website is optimized for various devices, including desktops, tablets, and mobile phones. The responsive design ensures that users can enjoy a seamless shopping experience regardless of the device they are using.
+
+### Installation
+
+Clone the repository:
+```
+git clone https://github.com/monika4445/e-commerce-final.git
+```
+Change to the project directory:
+```
+cd .. shop/frontend
+```
+Install the dependencies:
+```
+npm install
+```
+### Usage
+
+To run the Electronic accessories Shop frontend, use the following commands:
+```
+npm run dev
+```

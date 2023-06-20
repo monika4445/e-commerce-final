@@ -1,9 +1,10 @@
 # Introducing GigTech, Your Ultimate Destination for Seamless E-commerce Experience!
 
 ## Description
+End-to-End E-commerce Development: Harness the Power of ReactJS, TypeScript, Redux Toolkit, SCSS, Express.js, PostgreSQL, Sequelize, and Vite for Seamless Frontend and Backend Functionality.
 At GigTech, our mission is to provide a seamless online shopping experience for electronic accessories. 
 Our target audience consists of tech enthusiasts, professionals, and individuals who appreciate cutting-edge electronic accessories.
-This project is an eCommerce application built with Express.js, PostgreSQL, and Sequelize. It provides a boilerplate for creating an eCommerce full-stack application with features like user registration and authentication, product management, cart management, and order management.
+
 
 ## Scope and Scale of the Project
 The scope of our e-commerce application encompasses the development of a feature-rich website that encompasses the following components:
@@ -54,7 +55,7 @@ The scope of our e-commerce application encompasses the development of a feature
 ### Installing
 
 ```
-git clone https://github.com/dianna-paronyan/e-commerece-final-backend.git
+git clone https://github.com/monika4445/e-commerece-final.git
 cd .. finalProject
 npm install
 ```
